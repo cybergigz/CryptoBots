@@ -1,6 +1,6 @@
 import logging
 
-from connectors.binance_futures import BinanceFuturesClient
+from connectors.binance_futures import BinanceClient
 from connectors.bitmex import BitmexClient
 
 from interface.root_component import Root
@@ -25,8 +25,8 @@ logger.addHandler(file_handler)
 
 if __name__ == '__main__':
 
-    binance = BinanceFuturesClient("a640756f426f13b8d225a7f8ac9c9fc92f1f22ed6cf0030755171c96ba48345a",
-                                   "b2a94a6d7c43946a4e6bd7273335755413a03896785848db633518b551a27893", True)
+    binance = BinanceFuturesClient("api-keys",
+                                   "secret-keys", True)
     bitmex = BitmexClient("", "", True)
 
     root = Root(binance, bitmex)
